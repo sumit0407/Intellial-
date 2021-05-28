@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+</head>
+
+<script type='text/javascript'>
+
+    function showdata(a) 
+    {
+        document.getElemetById()       
+    }
+</script>
+<body>
+    
+    
+    
+    <table align="center"  cellspaccing=0 cellpadding=6 border="3">
+    <tr>
+    <td><form method="GET" action="{% url 'serch' %}"><input type='search' placeholder="id through search here" name="se" style='width:500px'>
+    <button type="submit">Serch</button>
+    
+    </td> </form>                                 
+    <td><a href="{% url 'homepage' %}">Add Order</a></td>
+    </td>
+    </tr>
+     </table>
+    <table align="center"  cellspaccing=0 cellpadding=6 border="7">
+        
+        <tr>
+            <td>Id</td>
+            <td>Customer</td>
+            <td>Product</td>
+            <td>Quntity</td>
+            <td>Unit Price</td>
+            <td>Total Price</td>
+        </tr>
+        {% if p %}
+        {% for i in p %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.Customer.Firstname}}</td>
+            <td>{{i.Productsss.Product_name}}</td>
+            <td>{{i.Quntity}}</td>
+            <td>{{i.Unit_price}}</td>
+            <td>{{i.Total_price}}</td>
+            <td><a href="{% url 'editpage' pk=i.id %}">Edit</a></td>
+            <td><a href=" {% url 'delete' pk=i.id %} ">Delete</a></td>
+            
+        </tr>
+        {% endfor %}
+        {% endif %}
+        {% if o %}
+        {% for j in o %}
+        <tr>
+            <td>{{j.id}}</td>
+            <td>{{j.Customer.Firstname}}</td>
+            <td>{{j.Productsss.Product_name}}</td>
+            <td>{{j.Quntity}}</td>
+            <td>{{j.Unit_price}}</td>
+            <td>{{j.Total_price}}</td>
+            <td><a href="{% url 'editpage' pk=j.id %}">Edit</a></td>
+            <td><a href=" {% url 'delete' pk=j.id %} ">Delete</a></td>
+            
+        </tr>
+        {% endfor %}
+        {% endif %}
+    </table>
+</body>
+</html>

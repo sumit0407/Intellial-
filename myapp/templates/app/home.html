@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-page</title>
+</head>
+<body>
+
+    <table align="right" cellspaccing=0 cellpadding=6 border="5" style="width: 280px;">
+        <tr><td><a href="{% url 'customerpage' %}">Add Customer</a></td></tr>
+        <tr><td><a href="{% url 'prod' %}">Add Product</a></td></tr>
+    </table>
+    <form action="{% url 'addorderss' %}" method="POST">{% csrf_token %}
+
+        
+
+        {% if err %}
+        <p style="text-align: center; color: red;">{{err}}</p>
+        {% endif %}
+        <table align ="center" cellspaccing=0 cellpadding=10 border="5">
+            <!-- <tr><td style="font-size: larger">Add Customer</td></tr> -->
+            <tr><td>Customer <td><select name="c">
+                <option selected>--Selected Customer--</option>
+                {% for i in cust %}
+              <option >{{i.Firstname}}</option>
+               {% endfor %}
+            </select></td></td></tr>
+            <tr><td>Product <td><select name="pro">
+                <option selected>--Selecte Product--</option>
+                {% for o in pro %}
+                <option>{{o.Product_name}}</option>
+                {% endfor %}
+            </select></td></td></tr>
+            <tr><td>Price <td><input type="text"  name='price' value="{{prprice}}"></td></td></tr>
+            <tr><td>Quntity <td><input type="text" name="q"></td></td></tr>
+            <tr><td>Total Price <td><input type="text" name="total"></td></td></tr>
+            <tr><td><input type="submit" value="Add Order"></td>
+            <td><a href="{% url 'orderpage' %}">View All Order</a></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

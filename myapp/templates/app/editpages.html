@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <form action="{% url 'editdatatable' pk=data.id %}" method="POST">{% csrf_token %}
+        
+        <table  align="center"  cellspaccing=0 cellpadding=6 border="7">
+            
+            <tr>
+                <td>Unit_price</td>
+                <td><input type="text" name="unit" placeholder="{{data.Unit_price}}"></td>
+            </tr>
+            <tr>
+                <td>Quntity</td>
+                <td><input type="text" name="q" placeholder="{{data.Quntity}}"></td>
+            </tr>
+            <tr>
+                <td>Total_price</td>
+                <td><input type="text" name="tprice" placeholder="{{data.Total_price}}"></td>
+            </tr>
+           
+            <tr><td><input type="submit" value="Update"></td></tr>
+            
+        </table>
+         
+    </form>
+   
+</body>
+</html>

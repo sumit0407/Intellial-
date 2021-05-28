@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+</head>
+
+<script type='text/javascript'>
+
+    function showdata(a) 
+    {
+        document.getElemetById()       
+    }
+</script>
+<body>
+    
+    
+    
+    <table align="center"  cellspaccing=0 cellpadding=6 border="3">
+    <tr>
+    <!-- <td><form method="GET" action="{% url 'serch' %}"><input type='search' placeholder="Search Content" name="se" style='width:500px'>
+    <button type="submit">Serch</button>
+    
+    </td> </form>                                  -->
+    <!-- <td><a href="#">Add Order</a></td> -->
+    </td>
+    </tr>
+     </table>
+    <table align="center"  cellspaccing=0 cellpadding=6 border="7">
+        
+        <tr>
+            <td>Id</td>
+            <td>Customer</td>
+            <td>Product</td>
+            <td>Quntity</td>
+            <td>Unit Price</td>
+            <td>Total Price</td>
+        </tr>
+        {% if data %}
+        
+        <tr>
+            <td>{{data.id}}</td>
+            <td>{{data.Customer.Firstname}}</td>
+            <td>{{data.Productsss.Product_name}}</td>
+            <td>{{data.Quntity}}</td>
+            <td>{{data.Unit_price}}</td>
+            <td>{{data.Total_price}}</td>
+            
+            
+        </tr>
+      
+      {% endif %}
+    </table>
+</body>
+</html>

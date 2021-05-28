@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer-add</title>
+</head>
+<body>
+    <form action="{% url 'addcustomer' %}" method="POST">{% csrf_token %}
+        {% if err %}
+        <p style="text-align: center; color: red;">{{err}}</p>
+        {% endif %}
+        <table align ="center" cellspaccing=0 cellpadding=10 border="5">
+            <!-- <tr><td style="font-size: larger">Add Customer</td></tr> -->
+            <tr><td>Firstname <td><input type="text" name="fname"></td></td></tr>
+            <tr><td>Lastname <td><input type="text" name="lname"></td></td></tr>
+            <tr><td>Contact <td><input type="text" name="contact"></td></td></tr>
+            <tr><td>Pincode <td><input type="text" name="pin"></td></td></tr>
+            <tr><td><input type="submit" value="Add Customer"></td></tr>
+        </table>
+    </form>
+</body>
+</html>
